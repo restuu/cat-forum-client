@@ -22,7 +22,7 @@
     <v-toolbar 
       app
       dark
-      color="blue"
+      color="light-blue darken-2"
       >
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>
@@ -43,6 +43,7 @@ export default {
     return {
       items: [
         { title: 'Home', icon: 'dashboard', to: '/' },
+        { title: 'Articles', icon: 'forum', to: '/articles' },
         { title: 'User', icon: 'person', to: '/about' }
       ],
       drawer: false,

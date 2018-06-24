@@ -1,35 +1,34 @@
 <template>
-  <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-        <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
-        <blockquote>
-          &#8220;First, solve the problem. Then, write the code.&#8221;
-          <footer>
-            <small>
-              <em>&mdash;John Johnson</em>
-            </small>
-          </footer>
-        </blockquote>
-      </v-layout>
-    </v-slide-y-transition>
+  <v-container grid-list-sm>
+    <v-layout wrap class="mt-3">
+
+      <v-flex v-for="item in items" :key="item.id" xs12 md2>
+        
+        <item-card :item="item" />
+
+      </v-flex>
+
+    </v-layout>
   </v-container>
 </template>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+<script>
+import data from '../dummy.json';
+import ItemCard from '@/components/ItemCard';
+
+export default {
+  data () {
+    return {
+      items: []
+    }
+  },
+
+  components: {
+    ItemCard
+  },
+
+  created () {
+    this.items = data
+  }
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+</script>
