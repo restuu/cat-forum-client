@@ -4,9 +4,9 @@
     <v-card>
       <v-card-media>
 
-        <v-flex fill-height>
-          <img :src="item.url" alt="">
-        </v-flex>
+        <div style="max-height: 200px">
+          <img :src="item.url" alt="" style="overflow: hidden">
+        </div>
           
       </v-card-media>
     </v-card>
