@@ -64,11 +64,12 @@ export default {
   },
 
   mounted () {
+    console.log('LOGIN MOUNTED')
     uiConfig.callbacks.signInSuccessWithAuthResult = function (authResult) {
       console.log(authResult)
     }
-    ui.start('#firebaseui-auth-container', uiConfig)
 
+    ui.start('#firebaseui-auth-container', uiConfig)
   }
 }
 </script>
