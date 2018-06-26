@@ -1,21 +1,18 @@
 <template>
   <v-container>
-    <v-layout column fill-height wrap>
-      <v-flex v-for="article in articles" :key="article.id">
-
-        <v-card>
-          <article>aaa</article>
-        </v-card>
-
-      </v-flex>
-    </v-layout>
+    <item-list :items="articles"/>
   </v-container>
 </template>
 
 <script>
-import data from '../data.json';
+import data from '../data.json'
+import ItemList from '@/components/ItemList';
 
 export default {
+  components: {
+    ItemList
+  },
+
   data () {
     return {
       articles: []

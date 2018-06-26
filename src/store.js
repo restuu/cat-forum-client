@@ -10,7 +10,8 @@ export default new Vuex.Store({
       email: '',
       password: '',
     },
-    valid: false
+    valid: false,
+    isLogin: false
   },
 
   mutations: {
@@ -28,6 +29,10 @@ export default new Vuex.Store({
 
     setValid(state, valid) {
       state.valid = valid
+    },
+
+    setLoginState(state, status) {
+      state.isLogin = status
     }
   },
   

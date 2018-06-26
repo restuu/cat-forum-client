@@ -4,7 +4,8 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Users from './views/Users.vue'
 import Login from './views/Login.vue'
-import Articles from './views/Articles';
+import Articles from './views/Articles'
+import Images from './views/Images';
 
 Vue.use(Router)
 
@@ -15,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/images',
+      name: 'images',
+      component: Images
     },
     {
       path: '/about',

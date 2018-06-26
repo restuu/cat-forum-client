@@ -20,9 +20,9 @@
 
           <v-flex xs1>
             <v-select
-              :items="searchItems"
+              :items="categories"
               v-model="selected"
-              label="Option"       
+              label="Categories"       
             >
             </v-select>
           </v-flex>
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  props: [ 'searchItems' ],
+  props: [ 'categories' ],
 
   data () {
     return {

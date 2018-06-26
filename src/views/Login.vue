@@ -1,8 +1,8 @@
 <template>
-  <v-layout align-start justify-center>
+  <v-layout align-center justify-center>
     <v-flex class="text-xs-center" xs12 md5>
 
-      <login-form :toRegister="toRegister"/>
+      <!-- <login-form :toRegister="toRegister"/>
 
       <div>
         <v-btn 
@@ -15,7 +15,7 @@
           @click="register"
           >
         Register</v-btn>
-      </div>
+      </div> -->
       <div id="firebaseui-auth-container"></div>
     </v-flex>
   </v-layout>
@@ -26,6 +26,7 @@ import LoginForm from '@/components/LoginForm.vue'
 import axios from 'axios'
 import { mapState } from 'vuex'
 import { uiConfig, ui } from '@/helpers/firebaseUI'
+import firebase from '@/helpers/firebase';
 
 export default {
   components: {
@@ -60,13 +61,20 @@ export default {
       } else {
         this.toRegister = true
       }
+    },
+
+    loginSuccess () {
+      console.log('login success')
+      this.$router.push('/')
     }
   },
 
   mounted () {
-    console.log('LOGIN MOUNTED')
+    let self = this
     uiConfig.callbacks.signInSuccessWithAuthResult = function (authResult) {
-      console.log(authResult)
+      if (authResult.user) {
+        self.loginSuccess()
+      }
     }
 
     ui.start('#firebaseui-auth-container', uiConfig)

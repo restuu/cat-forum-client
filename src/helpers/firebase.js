@@ -10,3 +10,8 @@ const config = {
   messagingSenderId: "246793326692"
 };
 firebase.initializeApp(config);
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(() => console.log('persisting login'))
+  .catch(err => console.log(err))
+
+export default firebase

@@ -5,6 +5,7 @@
       app
       width="150"
       v-model="drawer"
+      style="z-index: 9999 !important"
       >
       <v-divider></v-divider>
       <v-list dense class="pt-0">
@@ -23,6 +24,7 @@
       app
       dark
       color="light-blue darken-2"
+      style="z-index: 9998 !important"
       >
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>
@@ -30,8 +32,8 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items >
-        <v-btn flat small :to="{name: 'login'}" v-if="token">Login</v-btn>
-        <v-btn flat small @click="localStorage.clear()" v-else>Logout</v-btn>
+        <v-btn flat small :to="{name: 'login'}" v-if="!isLogin">Login</v-btn>
+        <v-btn flat small @click="$emit('logout')" v-else>Logout</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </div>
@@ -39,6 +41,7 @@
 
 <script>
 export default {
+  props: [ 'isLogin' ],
   data () {
     return {
       items: [
@@ -47,7 +50,6 @@ export default {
         { title: 'User', icon: 'person', to: '/about' }
       ],
       drawer: false,
-      token: localStorage.getItem('token')
     }
   }
 }
