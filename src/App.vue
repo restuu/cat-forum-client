@@ -65,6 +65,7 @@ export default {
       firebase.auth().signOut()
       this.setUser({})
       this.checkLoginState()
+      this.$router.push('/')
     }
   },
 

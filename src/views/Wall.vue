@@ -44,11 +44,14 @@
                   <v-container>
                     <v-layout>
                       <v-flex>
-                        <v-text-field
-                          label="Select your image"
-                          :type="'file'"
+                        <v-btn @click="chooseFile" round small>
+                          <input 
+                            type="file" 
+                            style="display: none"
+                            ref="image"
                           >
-                        </v-text-field>
+                          choose file
+                        </v-btn>
                         <v-text-field
                           label="Title"
                           >
@@ -103,6 +106,12 @@ export default {
     ...mapState([
       'user'
     ])
+  },
+
+  methods: {
+    chooseFile () {
+      this.$refs.image.click()
+    }
   },
 
   created () {
