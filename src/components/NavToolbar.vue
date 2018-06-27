@@ -32,6 +32,10 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items >
+        <v-btn flat small :to="`/${personUrl}`" v-if="person">
+          <v-icon>person</v-icon>
+          {{ person }}
+        </v-btn>
         <v-btn flat small :to="{name: 'login'}" v-if="!isLogin">Login</v-btn>
         <v-btn flat small @click="$emit('logout')" v-else>Logout</v-btn>
       </v-toolbar-items>
@@ -41,15 +45,23 @@
 
 <script>
 export default {
-  props: [ 'isLogin' ],
+  props: [ 'isLogin', 'person' ],
   data () {
     return {
       items: [
         { title: 'Home', icon: 'dashboard', to: '/' },
-        { title: 'Articles', icon: 'forum', to: '/articles' },
-        { title: 'User', icon: 'person', to: '/about' }
+        { title: 'Gallery', icon: 'collections', to: '/images' },
+        { title: 'Articles', icon: 'forum', to: '/articles' }
       ],
       drawer: false,
+    }
+  },
+
+  computed: {
+    personUrl () {
+      let url = this.person.split(' ').join('-').toLowerCase()
+      console.log(url)
+      return url
     }
   }
 }

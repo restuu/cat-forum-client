@@ -9,6 +9,7 @@ export default new Vuex.Store({
       fullname: '',
       email: '',
       password: '',
+      photoUrl: ''
     },
     valid: false,
     isLogin: false
@@ -25,6 +26,13 @@ export default new Vuex.Store({
 
     setPassword(state, password) {
       state.user.password = password
+    },
+
+    setUser(state, userObj) {
+      state.user.fullname = userObj.fullname
+      state.user.email = userObj.email
+      state.user.password = userObj.password
+      state.user.photoUrl = userObj.photoUrl
     },
 
     setValid(state, valid) {
