@@ -31,7 +31,55 @@
 
         <v-flex xs9>
           <v-card>
-            <h1>ini untuk post</h1>
+            <div>
+              <v-tabs
+                v-model="tabs"
+                color="blue-sky"
+                >
+                <v-tab>Image</v-tab>
+                <v-tab>Article</v-tab>
+
+                <!-- input image -->
+                <v-tab-item>
+                  <v-container>
+                    <v-layout>
+                      <v-flex>
+                        <v-text-field
+                          label="Select your image"
+                          :type="'file'"
+                          >
+                        </v-text-field>
+                        <v-text-field
+                          label="Title"
+                          >
+                        </v-text-field>
+
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-tab-item>
+                <!-- input image end -->
+
+                <!-- input article -->
+                <v-tab-item>
+                  <v-container>
+                    <v-layout>
+                      <v-flex>
+                        <v-text-field
+                          label="Title"  
+                        />
+                        <v-text-field
+                          label="Content"
+                          textarea
+                          rows="5"
+                        />
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-tab-item>
+                <!-- input article end -->
+              </v-tabs>
+            </div>
           </v-card>
         </v-flex>
 
@@ -45,6 +93,12 @@
 import { mapState } from 'vuex'
 
 export default {
+  data () {
+    return {
+      tabs: null
+    }
+  },
+
   computed: {
     ...mapState([
       'user'
@@ -55,6 +109,7 @@ export default {
     if (!this.user.fullname) {
       this.$router.push('/')
     }
+    console.log(this.tabs)
   }
 }
 </script>

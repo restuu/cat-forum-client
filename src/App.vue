@@ -54,7 +54,6 @@ export default {
             photoUrl: user.photoURL
           }
           self.setUser(userObj)
-          console.log(user)
         } else {
           console.log('no one logged in')
         }
